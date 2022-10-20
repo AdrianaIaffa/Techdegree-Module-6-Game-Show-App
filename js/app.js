@@ -29,16 +29,23 @@ const getRandomPhraseAsArray = newPhraseRound => {
     return newPhraseRound[randomNumber].split('');
   }
   
-  console.log(getRandomPhraseAsArray(phrasesToGuess));
-  
-  
+// adds the letter of a string to the display
+const addPhraseToDisplay = arr => {
+    for ( let i = 0; i < arr.length; i++);
+    const li = document.createElement("li");
+    const list = document.querySelector("#phrase");
+    li.textContent = "arr[i]";
+    list.append(li);
+    if("arr[i]" === " ") {
+        li.className = "space"; 
+    } else {
+        li.className = "letter";
+    }
+}
+addPhraseToDisplay(getRandomPhraseAsArray(phrasesToGuess));
 
 
-// const addPhraseToDisplay = arr => {
-//     let items = '';
-//     for ( let i = 0; i< newPhraseRound.length; i++);
-//     items += `<li>${newPhraseRound[i]}</li>`
-// }
+
 
 // const checkLetter = button => {
 
