@@ -33,10 +33,10 @@ const getRandomPhraseAsArray = newPhraseRound => {
 const addPhraseToDisplay = arr => {
     for ( let i = 0; i < arr.length; i++);
     const li = document.createElement("li");
-    const display = document.querySelector("#phrase");
-    li.textContent = "arr[i]";
+    const display = document.querySelector("ul");
+    li.textContent = arr[i];
     display.append(li);
-    if("arr[i]" === " ") {
+    if(arr[i] === " ") {
         li.className = "space"; 
     } else {
         li.className = "letter";
