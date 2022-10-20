@@ -2,7 +2,7 @@ const qwerty = document.getElementById("qwerty");
 const phrase = document.getElementById("phrase");
 const startGame = document.querySelector(".btn__reset");
 const removeOverlay = document.querySelector("#overlay");
-const randomNumber = Math.floor( math.random() * phrasesToGuess.lenght + 1 );
+
 let missed = 0;
 
 const phrasesToGuess = [
@@ -24,12 +24,18 @@ startGame.addEventListener('click', () =>{
 
 
 // Return a random phrase from an array
-// const getRandomPhraseAsArray = arr => {
-    // phrasesToGuess[randomNumber]
-// }
+const getRandomPhraseAsArray = newPhraseRound => {
+    const randomNumber = Math.floor(Math.random() * newPhraseRound.length);
+    return newPhraseRound[randomNumber].split('');
+  }
+  
+  console.log(getRandomPhraseAsArray(phrasesToGuess));
+  
+  
+
 
 // const addPhraseToDisplay = arr => {
-
+//for ( let i = 0; i<=i.leght; i++)
 // }
 
 // const checkLetter = button => {
