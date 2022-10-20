@@ -35,7 +35,9 @@ const getRandomPhraseAsArray = newPhraseRound => {
 
 
 // const addPhraseToDisplay = arr => {
-//for ( let i = 0; i<=i.leght; i++)
+//     let items = '';
+//     for ( let i = 0; i< newPhraseRound.length; i++);
+//     items += `<li>${newPhraseRound[i]}</li>`
 // }
 
 // const checkLetter = button => {
