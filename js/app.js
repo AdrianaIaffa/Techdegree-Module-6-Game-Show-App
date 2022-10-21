@@ -16,12 +16,9 @@ const phrasesToGuess = [
     "look after your pennies and the pounds will look after themselves",
 ];
 
-
-
 startGame.addEventListener('click', () =>{
     removeOverlay.style.display = "none";
 });
-
 
 // Return a random phrase from an array
 const getRandomPhraseAsArray = newPhraseRound => {
@@ -31,25 +28,30 @@ const getRandomPhraseAsArray = newPhraseRound => {
   
 // adds the letter of a string to the display
 const addPhraseToDisplay = arr => {
-    for ( let i = 0; i < arr.length; i++);
-    const li = document.createElement("li");
-    const display = document.querySelector("ul");
-    li.textContent = arr[i];
-    display.append(li);
-    if(arr[i] === " ") {
-        li.className = "space"; 
-    } else {
-        li.className = "letter";
+    for ( let i = 0; i < arr.length; i++) {
+        const li = document.createElement("li");
+        const display = document.querySelector("ul");
+        li.textContent = arr[i];
+        display.append(li);
+        if(arr[i] === " ") {
+            li.className = "space"; 
+        } else {
+            li.className = "letter";
+        }
     }
 };
 addPhraseToDisplay(getRandomPhraseAsArray(phrasesToGuess));
 
-
-
-
-// const checkLetter = button => {
-
-// }
+const checkLetter = button => {
+    const alphabet = document.querySelectorAll(li);
+    let matchLetter = null;
+    for ( let i = 0; i < alphabet.length; i++) {
+        if ( button.textContent === alphabet[i].textContent) {
+        li.className = "show";
+        let matchLetter = +1;
+        }
+    return matchLetter; }
+}
 
 // const checkWin = () => {
 
