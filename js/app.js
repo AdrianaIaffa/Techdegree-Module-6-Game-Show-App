@@ -49,21 +49,28 @@ const checkLetter = button => {
         if ( button.textContent === alphabet[i].textContent) {
         li.className = "show";
         let matchLetter = +1;
+        return matchLetter;
         }
-    return matchLetter; }
+     }
 }
 
-// const checkWin = () => {
 
-// }
+// listen for the onscreen keyboard to be clicked, attach clicked to querty buttons and trigger checkletter
+qwerty.addEventListener("click", (e) => {
+    if (e.target.tagName === 'BUTTON' && checkLetter === true) {
+    button.className = "chosen";
+    } else if (checkLetter === false){
+        //remove heart
+    }
+    );
 
-// startButton.addEventListener("click", () => {
+//
+// check if the game has been won or loss
+//const checkWin = () => {
 
-// });
+//}
 
-// qwerty.addEventListener("click", e => {
 
-// });
 
 // function countToFive(start = 1) {
 //     for(var i = start; i <=5; i+=1){
