@@ -1,7 +1,7 @@
 const qwerty = document.getElementById("qwerty");
 const phrase = document.getElementById("phrase");
 const startGame = document.querySelector(".btn__reset");
-const removeOverlay = document.querySelector("#overlay");
+const startOverlay = document.querySelector("#overlay");
 
 let missed = 0;
 
@@ -17,7 +17,7 @@ const phrasesToGuess = [
 ];
 
 startGame.addEventListener('click', () =>{
-    removeOverlay.style.display = "none";
+    startOverlay.style.display = "none";
 });
 
 // Return a random phrase from an array
@@ -43,32 +43,55 @@ const addPhraseToDisplay = arr => {
 addPhraseToDisplay(getRandomPhraseAsArray(phrasesToGuess));
 
 const checkLetter = button => {
-    const alphabet = document.querySelectorAll(li);
+    const alphabet = document.querySelectorAll("li.letter");
     let matchLetter = null;
     for ( let i = 0; i < alphabet.length; i++) {
         if ( button.textContent === alphabet[i].textContent) {
-        li.className = "show";
-        let matchLetter = +1;
-        return matchLetter;
+        alphabet[i].classList.add("show");
+        matchLetter = button.textContent;
+        
         }
      }
+     return matchLetter;
 }
 
 
 // listen for the onscreen keyboard to be clicked, attach clicked to querty buttons and trigger checkletter
 qwerty.addEventListener("click", (e) => {
-    if (e.target.tagName === 'BUTTON' && checkLetter === true) {
+    if (e.target.tagName === 'BUTTON') {
+    const button = e.target;    
     button.className = "chosen";
-    } else if (checkLetter === false){
-        //remove heart
+    button.disabled = true;
+    const checkingLetter = checkLetter(button);
+    if (checkingLetter === null) {
+        const hearts = document.querySelectorAll(".tries img");
+        hearts[missed].src = "../images/lostHeart.png";
+        missed +=1;
     }
-    );
+    } 
+        //remove heart
+    
+});
 
 //
 // check if the game has been won or loss
-//const checkWin = () => {
+const checkWin = () => {
+    const letter = document.querySelectorAll(".letter");
+    const show = document.querySelectorAll(".show");
+    const headline = document.querySelector(".title");
+        if (letter.length === show.length) {
+            startOverlay.className = "win";
+            headline.textConent = "You win!";
+            startOverlay.style.display = "flex";
+            reset();
+        } else if ( missed > 4) {
+            startOverlay.className = "lose";
+            headline.textConent = "You lost :(";
+            startOverlay.style.display = "flex";
+            reset();
+        }
+    }
 
-//}
 
 
 
