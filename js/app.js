@@ -68,7 +68,7 @@ qwerty.addEventListener("click", (e) => {
         hearts[missed].src = "../images/lostHeart.png";
         missed +=1;
     }
-    } 
+    } checkWin();
         //remove heart
     
 });
@@ -81,12 +81,12 @@ const checkWin = () => {
     const headline = document.querySelector(".title");
         if (letter.length === show.length) {
             startOverlay.className = "win";
-            headline.textConent = "You win!";
+            headline.textContent = "You win!";
             startOverlay.style.display = "flex";
             reset();
         } else if ( missed > 4) {
             startOverlay.className = "lose";
-            headline.textConent = "You lost :(";
+            headline.textContent = "You lost :(";
             startOverlay.style.display = "flex";
             reset();
         }
